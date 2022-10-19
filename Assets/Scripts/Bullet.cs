@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(bullet);
             GameManager.playGame = true;
-            GameManager.score += 50;
+            GameManager.score += 5;
         }
     }
 }

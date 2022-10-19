@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     void EnemyFire()
     {
-        if (Random.Range(0, 3000) < 0.5)
+        if (Random.Range(0, 10000) < 0.5)
         {
             enemyBulletClone = Instantiate(enemyBullet, new Vector3(enemy.transform.position.x, enemy.transform.position.y - 0.4f, 0), enemy.transform.rotation) as GameObject;
         }
