@@ -38,13 +38,19 @@ public class Enemy : MonoBehaviour
                 speed = -speed;
             }
 
+            if (enemy.transform.position.y - 0.4f <= -2)
+            {
+                GameManager.lives = 0;
+                GameManager.playGame = false;
+            }
+
             EnemyFire();
         }
     }
 
     void EnemyFire()
     {
-        if (Random.Range(0, 10000) < 0.5)
+        if (Random.Range(0, 8000) < 0.5)
         {
             enemyBulletClone = Instantiate(enemyBullet, new Vector3(enemy.transform.position.x, enemy.transform.position.y - 0.4f, 0), enemy.transform.rotation) as GameObject;
         }
