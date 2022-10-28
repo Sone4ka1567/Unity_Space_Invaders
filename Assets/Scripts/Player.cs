@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public GameObject bulletClone;
 
+
     void Start()
     {
         
@@ -24,7 +25,17 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        int move_speed = 3;
+        int move_speed;
+        if (GameManager.tm_speed_increase > 0)
+        {
+            move_speed = 5;
+            GameManager.tm_speed_increase -= Time.deltaTime;
+        } else
+        {
+            GameManager.tm_speed_increase = 0;
+            move_speed = 3;
+        }
+        
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             if (player.transform.position.x <= 8)
